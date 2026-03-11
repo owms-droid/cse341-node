@@ -1,0 +1,20 @@
+{
+  "name": "contacts-project",
+  "version": "1.0.0",
+  "description": "My First Contacts Project",
+  "homepage": "https://github.com/owms-droid/cse341-node#readme",
+  "bugs": {
+    "url": "https://github.com/owms-droid/cse341-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owms-droid/cse341-node.git"
+  },
+  "license": "ISC",
+  "author": "Oliver Modesto",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
