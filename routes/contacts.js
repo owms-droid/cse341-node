@@ -1,33 +1,10 @@
-const dotenv = require('dotenv');
-dotenv.config();
+const express = require('express');
+const router = express.Router();
 
-const MongoClient = require('mongodb').MongoClient;
+const contactsController = require('../controllers/contacts');
 
-let contacts;
+router.get('/', contactsController.getAllContacts);
 
-const initDb = (callback) => {
-    if (contacts) {
-        console.log('Db is already initialized!');
-        return callback(null, contacts);
-    }
-    MongoClient.connect(process.env.MONGODB_URI)
-        .then((client) => {
-            contacts = client;
-            callback(null, contacts);
-        })
-        .catch((err) => {
-            callback(err);
-        });
-};
+router.get('/:id', contactsController.getContactById);
 
-const getDatabase = () => {
-    if (!contacts) {
-        throw Error('Db has not been initialized.')
-    }
-    return contacts;
-};
-
-module.exports = {
-    initDb,
-    getDatabase,
-};
+module.exports = router;
